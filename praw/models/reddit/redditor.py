@@ -97,8 +97,8 @@ class Redditor(MessageableMixin, RedditorListingMixin, FullnameMixin, RedditBase
 
         .. code-block:: python
 
-           for comment in reddit.redditor("spez").stream.comments():
-               print(comment)
+            for comment in reddit.redditor("spez").stream.comments():
+                print(comment)
 
         Additionally, new submissions can be retrieved via the stream. In the
         following example all submissions are fetched via the redditor
@@ -106,8 +106,8 @@ class Redditor(MessageableMixin, RedditorListingMixin, FullnameMixin, RedditBase
 
         .. code-block:: python
 
-           for submission in reddit.redditor("spez").stream.submissions():
-               print(submission)
+            for submission in reddit.redditor("spez").stream.submissions():
+                print(submission)
 
         """
         return RedditorStream(self)
@@ -255,8 +255,8 @@ class Redditor(MessageableMixin, RedditorListingMixin, FullnameMixin, RedditBase
             Return ``[]`` if the redditor has no moderated subreddits.
 
         .. note:: The redditor's own user profile subreddit will not be
-           returned, but other user profile subreddits they moderate
-           will be returned.
+            returned, but other user profile subreddits they moderate
+            will be returned.
 
         Usage:
 
@@ -363,8 +363,8 @@ class RedditorStream:
 
         .. code-block:: python
 
-           for comment in reddit.redditor("spez").stream.comments():
-               print(comment)
+            for comment in reddit.redditor("spez").stream.comments():
+                print(comment)
 
         """
         return stream_generator(self.redditor.comments.new, **stream_options)
@@ -384,8 +384,8 @@ class RedditorStream:
 
         .. code-block:: python
 
-           for submission in reddit.redditor("spez").stream.submissions():
-               print(submission)
+            for submission in reddit.redditor("spez").stream.submissions():
+                print(submission)
 
         """
         return stream_generator(self.redditor.submissions.new, **stream_options)

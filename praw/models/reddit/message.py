@@ -140,8 +140,9 @@ class SubredditMessage(Message):
 
             from praw.models import SubredditMessage
             msg = next(message for message in reddit.inbox.all()
-                        if isinstance(message, SubredditMessage)
+                    if isinstance(message, SubredditMessage))
             msg.mute()
+
         """
         self._reddit.post(API_PATH["mute_sender"], data={"id": self.fullname})
 
@@ -155,7 +156,7 @@ class SubredditMessage(Message):
 
             from praw.models import SubredditMessage
             msg = next(message for message in reddit.inbox.all()
-                        if isinstance(message, SubredditMessage)
+                    if isinstance(message, SubredditMessage))
             msg.unmute()
         """
         self._reddit.post(API_PATH["unmute_sender"], data={"id": self.fullname})

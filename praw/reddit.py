@@ -56,8 +56,8 @@ class Reddit:
 
     .. code-block:: python
 
-       import praw
-       reddit = praw.Reddit(client_id="CLIENT_ID",
+        import praw
+        reddit = praw.Reddit(client_id="CLIENT_ID",
                             client_secret="CLIENT_SECRET", password="PASSWORD",
                             user_agent="USERAGENT", username="USERNAME")
 
@@ -172,17 +172,17 @@ class Reddit:
 
         .. code-block:: python
 
-           import json, betamax, requests
+            import json, betamax, requests
 
-           class JSONDebugRequestor(Requestor):
-               def request(self, *args, **kwargs):
-                   response = super().request(*args, **kwargs)
-                   print(json.dumps(response.json(), indent=4))
-                   return response
+            class JSONDebugRequestor(Requestor):
+                def request(self, *args, **kwargs):
+                    response = super().request(*args, **kwargs)
+                    print(json.dumps(response.json(), indent=4))
+                    return response
 
-           my_session = betamax.Betamax(requests.Session())
-           reddit = Reddit(..., requestor_class=JSONDebugRequestor,
-                           requestor_kwargs={"session": my_session})
+            my_session = betamax.Betamax(requests.Session())
+            reddit = Reddit(..., requestor_class=JSONDebugRequestor,
+                            requestor_kwargs={"session": my_session})
 
         """
         self._core = self._authorized_core = self._read_only_core = None
@@ -249,8 +249,8 @@ class Reddit:
 
         .. code-block:: python
 
-           for submission in reddit.front.hot():
-               print(submission)
+            for submission in reddit.front.hot():
+                print(submission)
 
         """
 
@@ -264,8 +264,8 @@ class Reddit:
 
         .. code-block:: python
 
-           for comment in reddit.inbox.mentions():
-               print(comment)
+            for comment in reddit.inbox.mentions():
+                print(comment)
 
         """
 
@@ -277,7 +277,7 @@ class Reddit:
 
         .. code-block:: python
 
-           reddit.live.create("title", "description")
+            reddit.live.create("title", "description")
 
         """
 
@@ -290,7 +290,7 @@ class Reddit:
 
         .. code-block:: python
 
-           reddit.multireddit("samuraisam", "programming")
+            reddit.multireddit("samuraisam", "programming")
 
         """
 
@@ -302,8 +302,8 @@ class Reddit:
 
         .. code-block:: python
 
-           for redditor in reddit.redditors.new(limit=None):
-               print(redditor)
+            for redditor in reddit.redditors.new(limit=None):
+                print(redditor)
 
         """
 
@@ -315,21 +315,21 @@ class Reddit:
 
         .. code-block:: python
 
-           reddit.subreddit.create("coolnewsubname")
+            reddit.subreddit.create("coolnewsubname")
 
         To obtain a lazy a :class:`.Subreddit` instance run:
 
         .. code-block:: python
 
-           reddit.subreddit("redditdev")
+            reddit.subreddit("redditdev")
 
         Note that multiple subreddits can be combined and filtered views of
         r/all can also be used just like a subreddit:
 
         .. code-block:: python
 
-           reddit.subreddit("redditdev+learnpython+botwatch")
-           reddit.subreddit("all-redditdev-learnpython")
+            reddit.subreddit("redditdev+learnpython+botwatch")
+            reddit.subreddit("all-redditdev-learnpython")
 
         """
 
@@ -341,8 +341,8 @@ class Reddit:
 
         .. code-block:: python
 
-           for subreddit in reddit.subreddits.default(limit=None):
-               print(subreddit)
+            for subreddit in reddit.subreddits.default(limit=None):
+                print(subreddit)
 
         """
 
@@ -355,7 +355,7 @@ class Reddit:
 
         .. code-block:: python
 
-           print(reddit.user.me())
+            print(reddit.user.me())
 
         """
 
