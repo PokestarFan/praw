@@ -611,7 +611,9 @@ class Subreddit(MessageableMixin, SubredditListingMixin, FullnameMixin, RedditBa
             code, message, actual, maximum_size = [element.text for element in root[:4]]
             raise TooLargeMediaException(int(maximum_size), int(actual))
 
-    def _submit_media(self, data: dict, timeout: int, websocket_url: Optional[str]=None):
+    def _submit_media(
+        self, data: dict, timeout: int, websocket_url: Optional[str] = None
+    ):
         """Submit and return an `image`, `video`, or `videogif`.
 
         This is a helper method for submitting posts that are not link posts or self
